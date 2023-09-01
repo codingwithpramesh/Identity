@@ -11,5 +11,7 @@ namespace Identity.Repository
         Task<Status> Register(Register vm);
 
         Task LogoutAsync();
+
+        Task<Status> ChangePasswordAsync(ChangePasswordModel model, string username);
     }
 }

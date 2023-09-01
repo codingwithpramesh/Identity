@@ -10,13 +10,17 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 //builder.Services.AddDbContext<App>
 builder.Services.AddDbContext<ApplicationDbContext>(option =>
-    option.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+    {
+        option.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
+        option.EnableDetailedErrors();
+    }
+);
 
 builder.Services.AddScoped<IUserAuthenticationService, UserAuthenticationService>();
 //for identity
 
 builder.Services.AddIdentity<ApplicationUser, IdentityRole>().AddEntityFrameworkStores<ApplicationDbContext>().AddDefaultTokenProviders();
-builder.Services.ConfigureApplicationCookie(op => op.LoginPath="Account/Login");
+builder.Services.ConfigureApplicationCookie(op => op.LoginPath="/Account/Login");
 
 var app = builder.Build();
 

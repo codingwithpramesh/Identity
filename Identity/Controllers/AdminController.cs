@@ -4,7 +4,7 @@ namespace Identity.Controllers
 {
     public class AdminController : Controller
     {
-        public IActionResult Index()
+        public IActionResult Display()
         {
             return View();
         }

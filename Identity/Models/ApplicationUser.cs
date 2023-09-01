@@ -1,12 +1,12 @@
 ﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
 
 namespace Identity.Models
 {
     public class ApplicationUser : IdentityUser
     {
 
-        public int Name { get; set; }
-
-        public string ProfilePicture { get; set; }
+        public string Name { get; set; }
+        public string? ProfilePicture { get; set; }
     }
 }
