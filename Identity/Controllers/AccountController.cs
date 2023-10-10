@@ -76,20 +76,27 @@ namespace Identity.Controllers
         }
 
 
-       /* public async Task<IActionResult> Reg()
+        public async Task<IActionResult> ChangePassword()
         {
-            var model = new Register()
-            {
-                username = "admin",
-                Name = "pramesh",
-                Email = "admin@gmail.com",
-                Password = "password"
+            return View();
+        }
 
-            };
 
-            model.Role = "user";
-            var result = await _service.Register(Register)
-        }*/
+       
+        /* public async Task<IActionResult> Reg()
+         {
+             var model = new Register()
+             {
+                 username = "admin",
+                 Name = "pramesh",
+                 Email = "admin@gmail.com",
+                 Password = "password"
+
+             };
+
+             model.Role = "user";
+             var result = await _service.Register(Register)
+         }*/
 
 
     }

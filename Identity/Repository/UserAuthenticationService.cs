@@ -3,6 +3,7 @@ using Identity.Models.ViewModel;
 
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using NETCore.MailKit.Core;
 using System.Security.Claims;
 
 namespace Identity.Repository
@@ -13,11 +14,15 @@ namespace Identity.Repository
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly RoleManager<IdentityRole> _roleManager;
+     
+
         public UserAuthenticationService(SignInManager<ApplicationUser> signInManager, UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager)
         {
             _signInManager=signInManager;
             _roleManager=roleManager;
             _userManager=userManager;
+          //  _Iemailservice =emailservice;
+           // _configuration =configuration;
 
         }
 
@@ -42,6 +47,12 @@ namespace Identity.Repository
             var signinResult = await _signInManager.PasswordSignInAsync(user, vm.Password, false, true);
             if (signinResult.Succeeded)
             {
+                var token = _userManager.GenerateEmailConfirmationTokenAsync(user);
+
+                if (!string.IsNullOrEmpty("token"))
+                {
+
+                }
                 var userroles = await _userManager.GetRolesAsync(user);
                 var authclaims = new List<Claim>
                 {
@@ -144,6 +155,8 @@ namespace Identity.Repository
             return status;
 
         }
+
+
 
        
 

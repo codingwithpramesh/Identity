@@ -1,0 +1,8 @@
+﻿@model IEnumerable<ChangePasswordModel>
+
+<ul>
+    @foreach (var post in Model)
+    {
+        <li>@post.CurrentPassword</li>
+    }
+</ul>
