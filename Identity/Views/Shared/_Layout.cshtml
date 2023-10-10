@@ -32,8 +32,12 @@
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Admin" asp-action="Display">Admin Page</a>
                             </li>
                         }
-                        <li>
+                       @* <li>
                             @await Component.InvokeAsync("RecentPosts", new { numberOfPosts = 3 })
+                        </li>*@
+
+                       <li>
+                            @await Component.InvokeAsync("TopBooks")
                         </li>
                      
                     </ul>

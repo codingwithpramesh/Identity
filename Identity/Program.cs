@@ -44,7 +44,7 @@ builder.Services.ConfigureApplicationCookie(op => op.LoginPath="/Account/Login")
 builder.Services.ConfigureApplicationCookie(config =>
 {
     config.Cookie.Name ="Cookies";
-    config.LoginPath = "Account/Login";
+    //config.LoginPath = "Account/Login";
 });
 
 
